@@ -1,0 +1,27 @@
+swagger: '2.0'
+info:
+  title: Recommendation API
+  description: API to provide personalized recommendations.
+  version: '1.0'
+paths:
+  /recommendations:
+    get:
+      tags:
+        - Recommendations
+      summary: Get recommendations for a user
+      parameters:
+        - name: user_id
+          in: query
+          type: integer
+          required: true
+          description: ID of the user for whom recommendations are needed.
+      responses:
+        '200':
+          description: A JSON object with recommended item IDs.
+          schema:
+            type: object
+            properties:
+              recommendations:
+                type: array
+                items:
+                  type: integer
